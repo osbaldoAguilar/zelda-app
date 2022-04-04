@@ -1,21 +1,20 @@
-import Link from "next/link"
+import React from 'react'
 
-
-function Characters({response}) {
+function Games({response}) {
     console.log('see: ', response);
     let {data} = response
   return (
     <div>
-        <ul className='grid grid-cols-4 gap-2'>
+        <ul className='grid grid-cols-2 gap-2'>
             {data.map((index, key) => {
-                return <li key={key} className='p-6 bg-white rounded-xl text-base text-center shadow-lg flex items-center space-x-2'>{index.name}</li>
+                return <li key={key} className='p-6 bg-white rounded-xl shadow-lg flex items-center space-x-2'>{index.name}</li>
             })}
         </ul>
     </div>
   )
 }
 
-export default Characters
+export default Games
 
 export async function getServerSideProps() {
     const res = await fetch(`https://zelda.fanapis.com/api/characters`)
