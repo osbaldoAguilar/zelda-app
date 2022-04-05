@@ -17,4 +17,15 @@ a {
 
 * {
   box-sizing: border-box;
+  font-family: Hylia Serif Beta;
+}
+
+h1 {
+  color: #FFC000
+}
+
+#main {
+  background-image: url('../public/bg1.svg');
+  background-size: cover;
+  background-repeat: none;
 }

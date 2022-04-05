@@ -1,12 +1,9 @@
 // import useSwr from 'swr'
-import Image from 'next/image'
 import Link from 'next/link'
-import Layout from '../components/Layout'
-import Nav from '../components/Layout/Nav'
 // const url = 'https://zelda.fanapis.com/api/games'
 // const fetcher = (url) => fetch(url).then((res) => res.json())
 
-export default function Index() {
+export default function Nav() {
   // const { data, error } = useSwr('/api/games', fetcher)
   
   // if (error) return <div>Failed to load users</div>
@@ -14,10 +11,11 @@ export default function Index() {
   // let extracted = data.data.data
   // console.log(extracted);
   return (
-    <div id='main' className='h-screen'>
-      <Nav/>
-      
-    </div>
+    <ul className='flex justify-around py-4 text-golden-yellow'>
+      <Link href='/games'>Games</Link>
+      <Link href='/characters'>Characters</Link>
+      <Link href='/monsters'>Monsters</Link>
+    </ul>
     // <ul className='grid grid-cols-2 gap-2 mx-2'>
     //   {extracted.map((game, key) => (
     //     <li key={key}>

@@ -2,8 +2,8 @@ import useSwr from 'swr'
 import Link from 'next/link'
 // const url = 'https://zelda.fanapis.com/api/games'
 const fetcher = (url) => fetch(url).then((res) => res.json())
-function Characters({response}) {
-      const { data, error } = useSwr('/api/characters', fetcher)
+function Monsters({response}) {
+      const { data, error } = useSwr('/api/monsters', fetcher)
   
   if (error) return <div>Failed to load users</div>
   if (!data) return <div>Loading...</div>
@@ -11,10 +11,10 @@ function Characters({response}) {
   console.log('extracted: ',extracted);
   return (
     <ul className='grid grid-cols-2 gap-2 mx-2'>
-      {extracted.map((character, key) => (
+      {extracted.map((monster, key) => (
         <li key={key}>
-          <Link href={{pathname:`/character/${character.name}`, query: { data: JSON.stringify(character)}}} >
-            <a className='p-6 bg-green-dark rounded-xl shadow-xl flex text-center content-center space-x-2 f'>{character.name}</a>
+          <Link href={{pathname:`/monster/${monster.name}`, query: { data: JSON.stringify(monster)}}} >
+            <a className='p-6 bg-green-dark rounded-xl shadow-xl flex text-center content-center space-x-2 f'>{monster.name}</a>
           </Link>
         </li>
       ))}
@@ -22,7 +22,7 @@ function Characters({response}) {
   )
 }
 
-export default Characters
+export default Monsters
 
 // export async function getServerSideProps() {
 //     const res = await fetch(`https://zelda.fanapis.com/api/games`)
