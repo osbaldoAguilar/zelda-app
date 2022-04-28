@@ -22,7 +22,7 @@ export default function Character() {
 
     if (error) return <div>Failed to load users</div>
     if (!data) return <div>Loading...</div>
-    console.log('data in character', axios.get(character.appearances));
+    // console.log('data in character', axios.get(character.appearances));
     const { name, description, gender, race, appearances } = character
     return <div className='relative h-screen bg-cream rounded'>
         <div className='px-6 py-4 rounded'>
